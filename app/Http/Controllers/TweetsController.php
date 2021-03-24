@@ -16,10 +16,17 @@ class TweetsController extends Controller
 
     public function create()
     {
+        return view('tweets.create');
     }
 
     public function store(Request $request)
     {
+        $params = $request->validate([
+            'body' => 'required|max:144',
+        ]);
+        Tweet::create($params);
+
+        return redirect()->route('top');
     }
 
     public function show($tweet_id)
