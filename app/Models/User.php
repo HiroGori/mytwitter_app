@@ -43,16 +43,16 @@ class User extends Authenticatable
 
     public function tweets()
     {
-        return $this->hasMany('App\Tweet');
+        return $this->hasMany('App\Models\Tweet');
     }
 
-    public function follows()
+/*    public function follows()
     {
-        return $this->hasMany('App\Follow');
+        return $this->hasMany('App\Models\Follow');
     }
 
     public function tweetLikes()
     {
-        return $this->hasMany('App\TweetLike');
-    }
+        return $this->hasMany('App\Models\TweetLike');
+    }*/
 }
