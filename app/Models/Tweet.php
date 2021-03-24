@@ -2,11 +2,13 @@
 
 namespace App\Models;
 
-//use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Tweet extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'user_id',
         'body',
@@ -14,18 +16,16 @@ class Tweet extends Model
 
     public function comments()
     {
-        return $this->hasMany('App\Comment');
+        return $this->hasMany('App\Models\Comment');
     }
 
-    public function tweetLikes()
+/*    public function tweetLikes()
     {
-        return $this->hasMany('App\TweetLike');
+        return $this->hasMany('App\Models\TweetLike');
     }
-
+*/
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
-
-//    use HasFactory;
 }
