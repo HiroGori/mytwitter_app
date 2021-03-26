@@ -17,9 +17,38 @@
                 </span>
             </div>
         </div>
+        <form class="mb-4" method="POST" action="{{ route('comments.store') }}">
+            @csrf
+            <input
+                name="tweet_id"
+                type="hidden"
+                value="{{ $tweet->id }}"
+            >
+            <div class="form-group">
+                <label for="body">
+                    このツイートへのコメント
+                </label>
+                <textarea
+                    id="body"
+                    name="body"
+                    class="form-control {{ $errors->has('body') ? 'is-invalid' : '' }}"
+                    rows="4"
+                >{{ old('body') }}</textarea>
+                @if ($errors->has('body'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('body') }}
+                    </div>
+                @endif
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary">
+                    コメントする
+                </button>
+            </div>
+        </form>
         <section>
             <h2 class="h5 mb-4">
-                コメント
+                コメント一覧
             </h2>
             @forelse($tweet->comments as $comment)
                 <div class="border-top p-4">

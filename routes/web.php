@@ -13,3 +13,4 @@
 
 Route::get('/', 'TweetsController@index')->name('top');
 Route::resource('tweets', 'TweetsController', ['only' => ['create', 'store', 'show']]);
+Route::resource('comments', 'CommentsController', ['only' => ['store']]);

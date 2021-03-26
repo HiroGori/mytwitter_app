@@ -10,9 +10,15 @@ class Comment extends Model
     use HasFactory;
 
     protected $fillable = [
+        'user_id',
         'tweet_id',
         'body',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\Models\User');
+    }
 
     public function tweet()
     {
