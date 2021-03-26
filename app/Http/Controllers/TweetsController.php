@@ -24,6 +24,7 @@ class TweetsController extends Controller
         $params = $request->validate([
             'body' => 'required|max:144',
         ]);
+        $params['user_id'] = 1;
         Tweet::create($params);
 
         return redirect()->route('top');

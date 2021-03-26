@@ -2,6 +2,11 @@
 
 @section('content')
     <div class="container mt-4">
+        <div class="mb-4">
+            <a class="btn btn-primary" href="{{ route('tweets.create') }}">
+                新規ツイート
+            </a>
+        </div>
         @foreach ($tweets as $tweet)
             <div class="card mb-4">
                 <div class="card-header">
