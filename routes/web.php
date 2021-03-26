@@ -12,4 +12,4 @@
 */
 
 Route::get('/', 'TweetsController@index')->name('top');
-Route::resource('tweets', 'TweetsController', ['only' => ['create', 'store']]);
+Route::resource('tweets', 'TweetsController', ['only' => ['create', 'store', 'show']]);
