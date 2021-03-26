@@ -42,7 +42,6 @@ class TweetsController extends Controller
         $tweet = Tweet::findOrFail($tweet_id);
 
         return view('tweets.edit', ['tweet' => $tweet,]);
-}
     }
 
     public function update($tweet_id, Request $request)
@@ -50,7 +49,7 @@ class TweetsController extends Controller
         $params = $request->validate([
             'body' => 'required|max:144',
         ]);
-        $params('user_id') = 1;
+        $params['user_id'] = 1;
         $tweet = Tweet::findOrFail($tweet_id);
         $tweet->fill($params)->save();
 
