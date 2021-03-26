@@ -32,6 +32,9 @@ class TweetsController extends Controller
 
     public function show($tweet_id)
     {
+        $tweet = Tweet::findOrFail($tweet_id);
+
+        return view('tweets.show', ['tweet' => $tweet]);
     }
     
     public function edit($tweet_id)

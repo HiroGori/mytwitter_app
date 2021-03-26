@@ -16,6 +16,9 @@
                     <p class="card-text">
                         {!! nl2br(e(Str::limit($tweet->body, 145))) !!}
                     </p>
+                    <a class="card-link" href="{{ route('tweets.show', ['tweet' => $tweet]) }}">
+                        詳細を見る
+                    </a>
                 </div>
                 <div class="card-footer">
                     <span class="mr-2">
