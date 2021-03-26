@@ -17,6 +17,11 @@
                 </span>
             </div>
         </div>
+        <div class="mb-4 text-right">
+            <a class="btn btn-primary" href="{{ route('tweets.edit', ['tweet' => $tweet]) }}">
+                このツイートを編集する
+            </a>
+        </div>
         <form class="mb-4" method="POST" action="{{ route('comments.store') }}">
             @csrf
             <input
