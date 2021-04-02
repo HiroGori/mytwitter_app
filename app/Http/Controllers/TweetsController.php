@@ -58,5 +58,12 @@ class TweetsController extends Controller
 
     public function destroy($tweet_id)
     {
+        $tweet = Tweet::findOrFail($tweet_id);
+        \DB::transaction(function () use ($tweet) {
+            $tweet->comments()->delete();
+            $tweet->delete();
+        });
+
+        return redirect()->route('top');
     }
 }
