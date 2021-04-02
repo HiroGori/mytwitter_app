@@ -19,8 +19,17 @@
         </div>
         <div class="mb-4 text-right">
             <a class="btn btn-primary" href="{{ route('tweets.edit', ['tweet' => $tweet]) }}">
-                このツイートを編集する
+                編集
             </a>
+            <form
+                style="display: inline-block;"
+                method="POST"
+                action="{{ route('tweets.destroy', ['tweet' => $tweet]) }}"
+            >
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger">削除</button>
+            </form>
         </div>
         <form class="mb-4" method="POST" action="{{ route('comments.store') }}">
             @csrf
