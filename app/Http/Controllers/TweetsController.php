@@ -9,7 +9,7 @@ class TweetsController extends Controller
 {
     public function index()
     {
-        $tweets = Tweet::orderBy('created_at', 'desc')->get();
+        $tweets = Tweet::with(['comments'])->orderBy('created_at', 'desc')->paginate(10);
 
         return view('tweets.index', ['tweets' => $tweets]);
     }

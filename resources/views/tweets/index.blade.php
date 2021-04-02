@@ -32,5 +32,8 @@
                 </div>
             </div>
         @endforeach
+        <div class="d-flex justify-content-center mb-5">
+            {{ $tweets->links() }}
+        </div>
     </div>
 @endsection
